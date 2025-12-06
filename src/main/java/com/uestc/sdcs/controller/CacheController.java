@@ -14,6 +14,11 @@ import java.util.Map;
 public class CacheController {
     private final NodeRouter nodeRouter;
 
+    /**
+     * 写入内容
+     * @param kv
+     * @return
+     */
     @PostMapping("/")
     public ResponseEntity<?> write(@RequestBody Map<String, Object> kv) {
         log.info("write: {}", kv);
