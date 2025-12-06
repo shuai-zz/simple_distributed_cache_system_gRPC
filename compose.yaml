@@ -1,1 +1,36 @@
+version: '3'
+
 services:
+  node1:
+    build: .
+    environment:
+      - NODE_ID=0
+      - HTTP_PORT=8080
+      - GRPC_PORT=9090
+      - CLUSTER_NODES=node1,node2,node3
+      - CLUSTER_GRPCPORTS=9090,9091,9092
+    ports:
+      - "9527:8080"
+
+  node2:
+    build: .
+    environment:
+      - NODE_ID=1
+      - HTTP_PORT=8080
+      - GRPC_PORT=9091
+      - CLUSTER_NODES=node1,node2,node3
+      - CLUSTER_GRPCPORTS=9090,9091,9092
+    ports:
+      - "9528:8080"
+
+  node3:
+    build: .
+    environment:
+      - NODE_ID=2
+      - HTTP_PORT=8080
+      - GRPC_PORT=9092
+      - CLUSTER_NODES=node1,node2,node3
+      - CLUSTER_GRPCPORTS=9090,9091,9092
+    ports:
+      - "9529:8080"
+
