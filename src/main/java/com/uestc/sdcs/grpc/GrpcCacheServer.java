@@ -6,9 +6,9 @@ import cache.CacheServiceGrpc;
 import com.uestc.sdcs.service.CacheService;
 import io.grpc.stub.StreamObserver;
 import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import net.devh.boot.grpc.server.service.GrpcService;
 
-@Service
+@GrpcService
 @RequiredArgsConstructor
 public class GrpcCacheServer extends CacheServiceGrpc.CacheServiceImplBase {
 
